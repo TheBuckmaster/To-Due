@@ -18,7 +18,7 @@
 		315CB5E416BAE03C00CFAE7F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 315CB5E316BAE03C00CFAE7F /* Default-568h@2x.png */; };
 		315CB5E716BAE03C00CFAE7F /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315CB5E516BAE03C00CFAE7F /* MainStoryboard.storyboard */; };
 		315CB5EA16BAE03C00CFAE7F /* TaskListMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315CB5E916BAE03C00CFAE7F /* TaskListMasterViewController.m */; };
-		315CB5ED16BAE03C00CFAE7F /* TaskListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315CB5EC16BAE03C00CFAE7F /* TaskListDetailViewController.m */; };
+		31E9AD7A16BB56650007CB9E /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31E9AD7916BB56650007CB9E /* TaskListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		315CB5E616BAE03C00CFAE7F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		315CB5E816BAE03C00CFAE7F /* TaskListMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskListMasterViewController.h; sourceTree = "<group>"; };
 		315CB5E916BAE03C00CFAE7F /* TaskListMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskListMasterViewController.m; sourceTree = "<group>"; };
-		315CB5EB16BAE03C00CFAE7F /* TaskListDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TaskListDetailViewController.h; sourceTree = "<group>"; };
-		315CB5EC16BAE03C00CFAE7F /* TaskListDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TaskListDetailViewController.m; sourceTree = "<group>"; };
+		31E9AD7816BB56650007CB9E /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		31E9AD7916BB56650007CB9E /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +86,13 @@
 		315CB5D316BAE03C00CFAE7F /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				31E9AD7816BB56650007CB9E /* TaskListViewController.h */,
+				31E9AD7916BB56650007CB9E /* TaskListViewController.m */,
 				315CB5DC16BAE03C00CFAE7F /* TaskListAppDelegate.h */,
 				315CB5DD16BAE03C00CFAE7F /* TaskListAppDelegate.m */,
 				315CB5E516BAE03C00CFAE7F /* MainStoryboard.storyboard */,
 				315CB5E816BAE03C00CFAE7F /* TaskListMasterViewController.h */,
 				315CB5E916BAE03C00CFAE7F /* TaskListMasterViewController.m */,
-				315CB5EB16BAE03C00CFAE7F /* TaskListDetailViewController.h */,
-				315CB5EC16BAE03C00CFAE7F /* TaskListDetailViewController.m */,
 				315CB5D416BAE03C00CFAE7F /* Supporting Files */,
 			);
 			path = ToDo;
@@ -182,7 +182,7 @@
 				315CB5DA16BAE03C00CFAE7F /* main.m in Sources */,
 				315CB5DE16BAE03C00CFAE7F /* TaskListAppDelegate.m in Sources */,
 				315CB5EA16BAE03C00CFAE7F /* TaskListMasterViewController.m in Sources */,
-				315CB5ED16BAE03C00CFAE7F /* TaskListDetailViewController.m in Sources */,
+				31E9AD7A16BB56650007CB9E /* TaskListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +299,7 @@
 				315CB5F216BAE03C00CFAE7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
