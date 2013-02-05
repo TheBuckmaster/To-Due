@@ -14,6 +14,9 @@
 }
 @end
 
+
+
+
 @implementation TaskListMasterViewController
 
 - (void)awakeFromNib
@@ -21,19 +24,13 @@
     [super awakeFromNib];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 
-}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 #pragma mark - Table View
 
@@ -60,7 +57,7 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
-    return NO;
+    return YES;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,29 +69,29 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
 }
-
+                                                                    
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //NSLog(@"Selected Cell");
     
-    //Here is where formatting the cell can happen.
+            //When we select a cell, we if its text is colored red, we return it to normal. 
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if(cell.textLabel.textColor == [UIColor redColor])
     {
         cell.textLabel.textColor = [UIColor blackColor];
         cell.textLabel.text =[[NSString alloc]initWithString:cell.textLabel.text];
+        cell.accessoryType = UITableViewCellAccessoryNone;
     }
-    else
+    else    // Or, if its text is not red, we color it red and strikethrough it. We also turn on the checkmark.
     {
         cell.textLabel.textColor = [UIColor redColor];
         NSDictionary* attributes = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
         NSAttributedString* attrText = [[NSAttributedString alloc] initWithString:cell.textLabel.text attributes:attributes];
         cell.textLabel.attributedText = attrText;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
-
-    
-    
+  
 }
 
 - (void)insertNewObject:(NSString*) str
@@ -107,6 +104,20 @@
        [_objects insertObject:[NSString stringWithString:(str)] atIndex:_objects.count];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    UIApplication *app = [UIApplication sharedApplication];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)name:UIApplicationDidEnterBackgroundNotification object:app];
+
+    
 }
 
 - (IBAction)done:(UIStoryboardSegue *)segue
@@ -132,7 +143,13 @@
         }
 }
 
-
+- (void)applicationDidEnterBackground:(NSNotification *) notification{
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *fullpath = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    
+}
          
          
 /*
