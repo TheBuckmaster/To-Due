@@ -44,14 +44,17 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
 
+    NSLog(@"TFSR");
     [textField resignFirstResponder];
-    
+    [self performSegueWithIdentifier:@"ReturnInput" sender:self];
     return YES;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([[segue identifier] isEqualToString:@"ReturnInput"]) {
-        if([self.taskNameInput.text length]){
+    if([[segue identifier] isEqualToString:@"ReturnInput"])
+    {
+        if([self.taskNameInput.text length])
+        {
             self.string = self.taskNameInput.text;
         }
     }
